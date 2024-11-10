@@ -201,12 +201,70 @@ def executar_crew_denuncia(victim_name, conversation_text):
         "conversation": conversation_text
     })
 
+# Função para executar o crew de geração de relatórios com histórico da conversa
+def executar_crew_relatorio(chat_history):
+    llm = get_llm()
+    print(chat_history)
+
+    jurista = Agent(
+        llm=llm,
+        role="Especialista em Lei Maria da Penha",
+        goal="Classificar violações e recomendar medidas legais apropriadas",
+        backstory=f"Jurista especializado em violência de gênero há 15 anos.",
+        allow_delegation=False,
+        verbose=True
+    )
+
+    agente_relatorio = Agent(
+        llm=llm,
+        role="Agente de Geração de Relatórios",
+        goal="Criar um relatório detalhado e estruturado com base no histórico de conversa do chat {chat_history}",
+        backstory="Especialista em análise de conversas e geração de relatórios técnicos, com foco em casos de violência contra a mulher.",
+        allow_delegation=False,
+        verbose=True
+    )
+
+    tarefa_relatorio = Task(
+        description="""
+        Analise o histórico da conversa e crie um relatório detalhado que inclua:
+        1. Resumo da situação relatada
+        2. Descrição dos Acontecimentos e legislação violada
+        3. Medidas protetivas, direitos a serem reinvindicados
+        com base em {chat_history} e no relatório jurídico
+        Use o seguinte formato:
+        - Informações Gerais
+        - Detalhes do Caso
+        - Leis Infringidas
+        - Medidas Protetivas
+        - Observações Adicionais
+        """,
+        expected_output="Relatório estruturado com todas as seções solicitadas.",
+        agent=agente_relatorio
+    )
+    analisar_violencia = Task(
+        description="Analise a conversa {chat_history} e, conforme a lei maria da penha, classifique as violações e recomende medidas protetivas legais que devem ser reinvindicadas",
+        expected_output="Relatório jurídico com classificação de violações e medidas legais recomendadas",
+        agent=jurista
+    )
+
+    crew = Crew(
+        agents=[jurista, agente_relatorio],
+        tasks=[analisar_violencia, tarefa_relatorio],
+        verbose=2
+    )
+
+    return crew.kickoff(inputs={"chat_history": chat_history})
+
 
 # Configuração da interface com abas
-tabs = st.tabs(["🚔 Localizar Delegacias", "📝 Criar Denúncia", "👮‍♀️ Assistente Lei Maria da Penha"])
+tabs = st.tabs([ "👮‍♀️ Assistente Lei Maria da Penha","📝 Criar Denúncia","🚔 Localizar Delegacias"])
+
+# Inicializa 'history' no session_state, se ainda não estiver definido
+if 'history' not in st.session_state:
+    st.session_state['history'] = ""
 
 # Aba 1: Localizar Delegacias
-with tabs[0]:
+with tabs[2]:
     st.title("🚔 Localizador de Delegacias Próximas")
     st.markdown("### Encontre delegacias próximas à sua localização")
     with st.form("busca_form"):
@@ -229,7 +287,13 @@ with tabs[1]:
     with st.form("denuncia_form"):
         victim_name = st.text_input("Nome da Vítima", placeholder="Digite seu nome completo")
         conversation_text = st.text_area("Relato dos Acontecimentos", placeholder="Descreva detalhadamente os acontecimentos...", height=300)
-        submitted_denuncia = st.form_submit_button("📋 Gerar Documento de Denúncia")
+        col1, col2 = st.columns(2)
+        with col1:
+            submitted_denuncia = st.form_submit_button("📋 Gerar Documento de Denúncia")
+        with col2:
+            submitted_relatorio = st.form_submit_button("📊 Gerar Relatório do Chat")
+
+    # Processamento do botão de denúncia
     if submitted_denuncia and victim_name and conversation_text:
         with st.spinner('Gerando documento de denúncia...'):
             try:
@@ -240,8 +304,29 @@ with tabs[1]:
             except Exception as e:
                 st.error(f"Ocorreu um erro durante a geração do documento: {str(e)}")
 
+    # Processamento do botão de relatório
+    if submitted_relatorio:
+        if "messages" in st.session_state and len(st.session_state.messages) > 1:
+            with st.spinner('Gerando relatório baseado no histórico do chat...'):
+                try:
+                    # Formata o histórico do chat de forma mais estruturada
+                    chat_history = "\n".join([
+                        f"{msg['role'].upper()}: {msg['content']}"
+                        for msg in st.session_state.messages
+                        if msg['content'].strip()  # Remove mensagens vazias
+                    ])
+                    
+                    resultado = executar_crew_relatorio(chat_history)
+                    st.success("Relatório gerado com sucesso!")
+                    st.markdown("### Relatório da Conversa")
+                    st.write(resultado)
+                except Exception as e:
+                    st.error(f"Ocorreu um erro durante a geração do relatório: {str(e)}")
+        else:
+            st.warning("Não há histórico de conversa disponível. Por favor, utilize primeiro o Assistente Virtual na aba 'Assistente Lei Maria da Penha'.")
+
 # Aba 3: Assistente Lei Maria da Penha
-with tabs[2]:
+with tabs[0]:
     st.title("👮‍♀️ Assistente Virtual - Lei Maria da Penha")
     st.subheader("Tire suas dúvidas sobre a Lei Maria da Penha")
     
@@ -318,9 +403,10 @@ with tabs[2]:
                     with st.chat_message("user"):
                         st.write(pergunta)
 
-                    # Gerar histórico da conversa
+                    # Atualizar histórico da conversa
                     history = "\n".join([f"{msg['role']}: {msg['content']}" for msg in st.session_state.messages])
-
+                    st.session_state['history'] = history
+                    
                     # Generate and display assistant response
                     with st.chat_message("assistant"):
                         with st.spinner("Analisando sua pergunta..."):
@@ -336,7 +422,6 @@ with tabs[2]:
 
             except Exception as e:
                 st.error(f"Ocorreu um erro ao processar sua solicitação: {str(e)}")
-
 
 # Rodapé
 st.markdown("---")
