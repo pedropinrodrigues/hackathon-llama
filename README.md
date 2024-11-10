@@ -47,14 +47,14 @@ Among the files in the project's root directory, we define:
 
 - <b>assets</b>: All images and media used in notebooks and documentation are stored here.
 
-- <b>arquivos python</b>: These are all files related to the functionality of our solution, which was developed using Python as the programming language.
+- <b>python files</b>: These are all files related to the functionality of our solution, which was developed using Python as the programming language.
 
 
 # Value Proposition Canvas
 &emsp; The **Value Proposition Canvas** developed for this solution aims to detail how the project addresses the specific needs of women at risk of domestic violence. By carefully identifying the jobs they need to accomplish, the pains they face, and the desired gains, we have aligned the offered products and services to provide effective legal and emotional support. This structure is crucial to understanding how elements of the solution, such as the support network, documentation tools, and access to legal information, contribute to protecting and empowering women, ensuring that every aspect of the project adds real value to their experience.
 
 <div align="center">
-<sub>Picture 2 - Value Proposition Canvas </sub>
+<sub>Figure 1 - Value Proposition Canvas </sub>
 <img
 src="assets\value_proposition_canvas.svg"
 alt="Descrição da imagem">
