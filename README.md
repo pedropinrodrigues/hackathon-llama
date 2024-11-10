@@ -17,7 +17,7 @@
 
 &emsp; This project is born out of a commitment to empower women, providing them with support, guidance, and knowledge of their rights so they can rebuild their lives with the assurance they deserve to live without fear. Each step is designed to make them feel heard, secure, and supported in their pursuit of justice and respect.
 
-<b>Link para vídeo demonstrativo: </b> <a href="https://inteli.edu.br">https://youtu.be/WBXwFL2daOo</a>
+<b>Link to the Demo Video: </b> <a href="https://www.youtube.com/watch?v=f2JXvC_GPUA">https://www.youtube.com/watch?v=f2JXvC_GPUA</a>
 
 # Objectives
 
