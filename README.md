@@ -9,7 +9,7 @@ Repositório referente ao Hackaton de IA da meta
 <div align="center">
 <sub>Picture 2 - Value Proposition Canvas </sub>
 <img
-src="Group 1.svg"
+src="assets\value_proposition_canvas.svg"
 alt="Descrição da imagem">
 <sup>Source: Material produced by the authors (2024).</sup>
 </div>
