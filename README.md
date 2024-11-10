@@ -1,4 +1,4 @@
-# 
+# maria.ai
 
 
 
@@ -139,7 +139,7 @@ alt="Descrição da imagem">
 
 # Conclusion
 
-This project represents a transformative step in providing critical legal and emergency support for women who face, or feel they may be at risk of, domestic violence. By equipping our agents with extensive legal knowledge and creating tools that allow women to document their cases and locate nearby support, we aim to build a foundation of safety, dignity, and empowerment.
+&emsp; This project represents a transformative step in providing critical legal and emergency support for women who face, or feel they may be at risk of, domestic violence. By equipping our agents with extensive legal knowledge and creating tools that allow women to document their cases and locate nearby support, we aim to build a foundation of safety, dignity, and empowerment.
 
-The emergency support system and report-generation tools are specifically designed to assist women in accessing help quickly and effectively, providing clear documentation for their defense and reinforcing their right to safety. This project is more than a technical solution; it is a commitment to empowering women with the resources, knowledge, and support they need to reclaim their lives without fear. We believe that through this initiative, we can create a network of trust, strength, and solidarity, affirming every woman’s right to justice and respect.
+&emsp; The emergency support system and report-generation tools are specifically designed to assist women in accessing help quickly and effectively, providing clear documentation for their defense and reinforcing their right to safety. This project is more than a technical solution; it is a commitment to empowering women with the resources, knowledge, and support they need to reclaim their lives without fear. We believe that through this initiative, we can create a network of trust, strength, and solidarity, affirming every woman’s right to justice and respect.
 
