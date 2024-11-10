@@ -1,9 +1,56 @@
-# hackaton-llama
-Repositório referente ao Hackaton de IA da meta
+# 
+
+
+
+
+# 👨‍🎓 Members: 
+
+- <a href="[www.linkedin.com/in/lucas-nepomuceno-ismart](https://www.linkedin.com/in/jonathanteoalves/)">Jonathan Teodoro Alves</a>
+- <a href="https://www.linkedin.com/in/pedro-pinheiro-rodrigues-b129b62b7/">Pedro Pinheiro Rodrigues</a>
+- <a href="https://www.linkedin.com/in/yanomã-fernandes-konwski-1015672b8/">Yanomã Fernandes Konwski</a> 
+
+# 📜 Description
+
+&emsp; This project is an inspiring initiative providing legal and emergency support for women facing, or who feel they may be at risk of, domestic violence. With the aim of offering protection and dignity, our agents are trained with comprehensive legal resources, enabling them to provide qualified guidance for women seeking a solid foundation for their defense. Through this support network, we not only strengthen knowledge of legal rights but also encourage each woman to feel empowered, knowing she is not alone.
+
+&emsp; Furthermore, we offer an emergency support system that locates nearby police support centers, facilitating swift access to safety. An additional tool generates PDF reports that compile the evidence presented by each woman, meticulously organized to support their defense before the relevant authorities and ensure their right to protection.
+
+&emsp; This project is born out of a commitment to empower women, providing them with support, guidance, and knowledge of their rights so they can rebuild their lives with the assurance they deserve to live without fear. Each step is designed to make them feel heard, secure, and supported in their pursuit of justice and respect.
+
+<b>Link para vídeo demonstrativo: </b> <a href="https://inteli.edu.br">https://youtu.be/WBXwFL2daOo</a>
+
+# Objectives
+
+1. **Provide Legal and Emergency Support**: Offer women facing or at risk of domestic violence a platform with qualified legal support, providing well-founded guidance on their legal rights.
+
+2. **Empower and Strengthen Knowledge**: Enhance women’s awareness of their rights by providing clear and accessible legal information that helps them make informed and safe decisions for their protection and defense.
+
+3. **Facilitate Quick Access to Support Centers**: Develop an emergency support system that quickly locates nearby police support centers so that women can access help swiftly and securely during critical moments.
+
+4. **Promote a Sense of Security and Support**: Create a welcoming and secure environment where each woman feels heard, respected, and supported in her pursuit of justice and dignity.
+
+# Justifications
+
+1. **Need for Qualified Legal Support**: Many women face difficulties in understanding and accessing legal resources that protect them in situations of domestic violence. This project addresses the need for clear and accessible information by offering efficient and guided legal support.
+
+2. **Importance of Swift Access to Protection**: In situations of imminent risk, quick access to police support centers is essential to ensure a woman’s safety. The emergency support system meets this need, making help more accessible.
+
+3. **Commitment to Dignity and Respect**: By creating an environment that values empowerment and respect, the project seeks to combat the isolation and fear faced by many women, showing that they are not alone and deserve to live in safety and dignity.
+
+4. **Promotion of Autonomy and Confidence**: Through training and guidance, the project supports women in rebuilding their lives with confidence, equipped with the knowledge and support necessary to live free from fear.
+
+# 📁 Folder Structure
+
+Among the files in the project's root directory, we define:
+
+- <b>readme.md</b>: A file that serves as a guide and general explanation of the project.
+
+- <b>assets</b>: All images and media used in notebooks and documentation are stored here.
+
+- <b>arquivos python</b>: These are all files related to the functionality of our solution, which was developed using Python as the programming language.
 
 
 # Value Proposition Canvas
-
 &emsp; The **Value Proposition Canvas** developed for this solution aims to detail how the project addresses the specific needs of women at risk of domestic violence. By carefully identifying the jobs they need to accomplish, the pains they face, and the desired gains, we have aligned the offered products and services to provide effective legal and emotional support. This structure is crucial to understanding how elements of the solution, such as the support network, documentation tools, and access to legal information, contribute to protecting and empowering women, ensuring that every aspect of the project adds real value to their experience.
 
 <div align="center">
@@ -58,4 +105,10 @@ alt="Descrição da imagem">
 
 
 &emsp; This **Value Proposition Canvas** demonstrates how the solution can alleviate pains associated with domestic violence against women. By aligning security resources, legal support, and organized documentation with key pain points and desired gains, the project establishes itself as a reliable source of support and dignity. Through this analysis, we see that the solution offers not only protection but also the knowledge and confidence necessary for each woman to feel safe and empowered in her journey toward justice and respect.
+
+# Conclusion
+
+This project represents a transformative step in providing critical legal and emergency support for women who face, or feel they may be at risk of, domestic violence. By equipping our agents with extensive legal knowledge and creating tools that allow women to document their cases and locate nearby support, we aim to build a foundation of safety, dignity, and empowerment.
+
+The emergency support system and report-generation tools are specifically designed to assist women in accessing help quickly and effectively, providing clear documentation for their defense and reinforcing their right to safety. This project is more than a technical solution; it is a commitment to empowering women with the resources, knowledge, and support they need to reclaim their lives without fear. We believe that through this initiative, we can create a network of trust, strength, and solidarity, affirming every woman’s right to justice and respect.
 
