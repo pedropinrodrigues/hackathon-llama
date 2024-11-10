@@ -1,1 +1,12 @@
+streamlit
 reportlab
+python-dotenv
+requests
+crewai
+langchain
+langchain-groq
+crewai-tools
+langchain-community
+huggingface-hub
+sentence-transformers
+faiss-cpu
