@@ -61,38 +61,6 @@ alt="Descrição da imagem">
 <sup>Source: Material produced by the authors (2024).</sup>
 </div>  
 
-# Personas
-
-&emsp; Personas are semi-fictional representations of ideal users, based on real data about the habits, behaviors, needs, and challenges of a project's target audience. They are created from research, interviews, and demographic data that help define specific characteristics of different user profiles. In product development projects, especially in the creation of websites and platforms, personas are fundamental for guiding the team in understanding who the users are, what they seek, and how they use the product.
-
-&emsp; o better understand the challenges faced in our area of work, we created two main personas: one who recognizes that she is experiencing a situation of violence, and another who has difficulty realizing she is going through the same problem. With this approach, our solution seeks to address both scenarios and develop a product adapted to meet the needs of each of these profiles. These personas have been mapped and can be observed in the following figures, along with their respective information.
-
-<div align="center">
-<sub>Figure 2 - Persona Andreia Barbosa </sub>
-<img
-src="assets\Persona-Andreia.png"
-alt="Descrição da imagem">
-<sup>Source: Material produced by the authors (2024).</sup>
-</div>  
-
-&emsp; Andreia é uma dona de casa de 29 anos que depende financeiramente do marido, Anderson, e dedicou sua vida ao cuidado do lar a pedido dele, deixando seus estudos e emprego para focar na vida familiar. Ela passa a maior parte do tempo em casa, isolada e com pouca rede de apoio, o que a faz questionar a saúde de sua relação e sua própria independência.
-
-&emsp; Esse perfil destaca uma mulher que, apesar de ter assumido o papel de cuidar do lar, sente a necessidade de retomar algum grau de independência e segurança pessoal. Ela procura informações e apoio para entender se a situação que está enfrentando se trata de violência e como pode buscar ajuda para sair dessa situação e atingir seus objetivos.
-
-<div align="center">
-<sub>Figure 3 - Persona Maria Almeida</sub>
-<img
-src="assets\Persona-Maria.png"
-alt="Descrição da imagem">
-<sup>Source: Material produced by the authors (2024).</sup>
-</div>  
-
-&emsp; Maria Maia Fernandes works as a counter clerk at a pharmacy and is the mother of three young children. She dedicates herself to household chores and caring for her children after work, being the primary provider for her family. To supplement her income, Maria is constantly looking for extra work to ensure her children’s well-being.
-
-&emsp; This profile highlights a woman who seeks balance and security for herself and her children and wishes to free herself from a relationship where violence and insecurity prevail.
-
-&emsp; With this information, our platform serves both personas by offering specific resources for legal guidance, emotional support, and access to safe, practical information for at-risk situations. With features ranging from mapping safe locations to documenting incidents, the platform is designed to empower women seeking safety and independence, providing them with the tools to make informed decisions and protect themselves and their loved ones.
-
 ## Customer Profile
 
 ### Customer Jobs
@@ -136,6 +104,40 @@ alt="Descrição da imagem">
 
 
 &emsp; This **Value Proposition Canvas** demonstrates how the solution can alleviate pains associated with domestic violence against women. By aligning security resources, legal support, and organized documentation with key pain points and desired gains, the project establishes itself as a reliable source of support and dignity. Through this analysis, we see that the solution offers not only protection but also the knowledge and confidence necessary for each woman to feel safe and empowered in her journey toward justice and respect.
+
+# Personas
+
+&emsp; Personas are semi-fictional representations of ideal users, based on real data about the habits, behaviors, needs, and challenges of a project's target audience. They are created from research, interviews, and demographic data that help define specific characteristics of different user profiles. In product development projects, especially in the creation of websites and platforms, personas are fundamental for guiding the team in understanding who the users are, what they seek, and how they use the product.
+
+&emsp; o better understand the challenges faced in our area of work, we created two main personas: one who recognizes that she is experiencing a situation of violence, and another who has difficulty realizing she is going through the same problem. With this approach, our solution seeks to address both scenarios and develop a product adapted to meet the needs of each of these profiles. These personas have been mapped and can be observed in the following figures, along with their respective information.
+
+<div align="center">
+<sub>Figure 2 - Persona Andreia Barbosa </sub>
+<img
+src="assets\Persona-Andreia.png"
+alt="Descrição da imagem">
+<sup>Source: Material produced by the authors (2024).</sup>
+</div>  
+
+&emsp; Andreia é uma dona de casa de 29 anos que depende financeiramente do marido, Anderson, e dedicou sua vida ao cuidado do lar a pedido dele, deixando seus estudos e emprego para focar na vida familiar. Ela passa a maior parte do tempo em casa, isolada e com pouca rede de apoio, o que a faz questionar a saúde de sua relação e sua própria independência.
+
+&emsp; Esse perfil destaca uma mulher que, apesar de ter assumido o papel de cuidar do lar, sente a necessidade de retomar algum grau de independência e segurança pessoal. Ela procura informações e apoio para entender se a situação que está enfrentando se trata de violência e como pode buscar ajuda para sair dessa situação e atingir seus objetivos.
+
+<div align="center">
+<sub>Figure 3 - Persona Maria Almeida</sub>
+<img
+src="assets\Persona-Maria.png"
+alt="Descrição da imagem">
+<sup>Source: Material produced by the authors (2024).</sup>
+</div>  
+
+&emsp; Maria Maia Fernandes works as a counter clerk at a pharmacy and is the mother of three young children. She dedicates herself to household chores and caring for her children after work, being the primary provider for her family. To supplement her income, Maria is constantly looking for extra work to ensure her children’s well-being.
+
+&emsp; This profile highlights a woman who seeks balance and security for herself and her children and wishes to free herself from a relationship where violence and insecurity prevail.
+
+&emsp; With this information, our platform serves both personas by offering specific resources for legal guidance, emotional support, and access to safe, practical information for at-risk situations. With features ranging from mapping safe locations to documenting incidents, the platform is designed to empower women seeking safety and independence, providing them with the tools to make informed decisions and protect themselves and their loved ones.
+
+
 
 # Conclusion
 
