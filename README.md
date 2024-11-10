@@ -80,14 +80,14 @@ alt="Descrição da imagem">
 &emsp; Esse perfil destaca uma mulher que, apesar de ter assumido o papel de cuidar do lar, sente a necessidade de retomar algum grau de independência e segurança pessoal. Ela procura informações e apoio para entender se a situação que está enfrentando se trata de violência e como pode buscar ajuda para sair dessa situação e atingir seus objetivos.
 
 <div align="center">
-<sub>Figure 3 - Persona Mariza Almeida</sub>
+<sub>Figure 3 - Persona Maria Almeida</sub>
 <img
-src="assets\Persona-Mariza.png"
+src="assets\Persona-Maria.png"
 alt="Descrição da imagem">
 <sup>Source: Material produced by the authors (2024).</sup>
 </div>  
 
-&emsp; Mariza Almeida Santos works as a counter clerk at a pharmacy and is the mother of three young children. She dedicates herself to household chores and caring for her children after work, being the primary provider for her family. To supplement her income, Mariza is constantly looking for extra work to ensure her children’s well-being.
+&emsp; Maria Maia Fernandes works as a counter clerk at a pharmacy and is the mother of three young children. She dedicates herself to household chores and caring for her children after work, being the primary provider for her family. To supplement her income, Maria is constantly looking for extra work to ensure her children’s well-being.
 
 &emsp; This profile highlights a woman who seeks balance and security for herself and her children and wishes to free herself from a relationship where violence and insecurity prevail.
 
