@@ -13,6 +13,18 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains import create_retrieval_chain
 from langchain_community.vectorstores import FAISS
+from reportlab.lib.pagesizes import A4
+from reportlab.pdfgen import canvas
+import tempfile
+import tempfile
+from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
+from reportlab.lib import colors
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.platypus import Paragraph, Frame
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from datetime import datetime
 
 # Carregar variáveis de ambiente
 load_dotenv()
@@ -281,50 +293,186 @@ with tabs[2]:
                 st.error(f"Ocorreu um erro durante a busca: {str(e)}")
 
 # Aba 2: Criar Denúncia
+def gerar_pdf_conteudo(conteudo, titulo="Dossiê de Denúncia de Violência Doméstica", autor="Sistema"):
+    # Criar buffer temporário
+    buffer = tempfile.NamedTemporaryFile(delete=False, suffix=".pdf")
+    
+    # Configurações da página
+    largura, altura = A4
+    c = canvas.Canvas(buffer.name, pagesize=A4)
+    
+    # Cores
+    cor_principal = colors.HexColor('#1a365d')  # Azul escuro
+    cor_secundaria = colors.HexColor('#718096')  # Cinza
+    
+    def adicionar_cabecalho():
+        # Retângulo do cabeçalho
+        c.setFillColor(cor_principal)
+        c.rect(0, altura - 80, largura, 80, fill=True)
+        
+        # Título
+        c.setFillColor(colors.white)
+        c.setFont("Helvetica-Bold", 24)
+        c.drawString(50, altura - 50, titulo)
+        
+        # Data
+        data_atual = datetime.now().strftime("%d/%m/%Y")
+        c.setFont("Helvetica", 10)
+        c.drawString(largura - 150, altura - 50, f"Data: {data_atual}")
+    
+    def adicionar_rodape():
+        # Linha do rodapé
+        c.setStrokeColor(cor_secundaria)
+        c.line(50, 50, largura - 50, 50)
+        
+        # Texto do rodapé
+        c.setFillColor(cor_secundaria)
+        c.setFont("Helvetica", 8)
+        c.drawString(50, 35, f"Autor: {autor}")
+        c.drawString(largura - 150, 35, f"Página 1")
+    
+    def formatar_conteudo():
+        # Estilo para o conteúdo
+        styles = getSampleStyleSheet()
+        estilo_normal = ParagraphStyle(
+            'CustomNormal',
+            parent=styles['Normal'],
+            fontSize=11,
+            leading=16,
+            textColor=colors.black,
+            spaceAfter=10
+        )
+        
+        # Criar frame para o conteúdo
+        frame = Frame(
+            50,  # x
+            70,  # y (acima do rodapé)
+            largura - 100,  # largura
+            altura - 160,  # altura (abaixo do cabeçalho)
+            leftPadding=0,
+            bottomPadding=0,
+            rightPadding=0,
+            topPadding=0
+        )
+        
+        # Processar o conteúdo
+        story = []
+        for paragrafo in conteudo.split('\n\n'):
+            if paragrafo.strip():
+                p = Paragraph(paragrafo.replace('\n', '<br/>'), estilo_normal)
+                story.append(p)
+        
+        # Desenhar o conteúdo
+        frame.addFromList(story, c)
+    
+    # Desenhar elementos
+    adicionar_cabecalho()
+    formatar_conteudo()
+    adicionar_rodape()
+    
+    # Finalizar PDF
+    c.save()
+    buffer.seek(0)
+    
+    # Ler e retornar o conteúdo binário
+    with open(buffer.name, "rb") as f:
+        pdf_data = f.read()
+    
+    return pdf_data
+
+# Atualize o código da aba de denúncia
 with tabs[1]:
     st.title("📝 Assistente de Denúncia")
-    st.markdown("### Auxílio na criação do documento de denúncia")
-    with st.form("denuncia_form"):
-        victim_name = st.text_input("Nome da Vítima", placeholder="Digite seu nome completo")
-        conversation_text = st.text_area("Relato dos Acontecimentos", placeholder="Descreva detalhadamente os acontecimentos...", height=300)
-        col1, col2 = st.columns(2)
-        with col1:
-            submitted_denuncia = st.form_submit_button("📋 Gerar Documento de Denúncia")
-        with col2:
-            submitted_relatorio = st.form_submit_button("📊 Gerar Relatório do Chat")
 
-    # Processamento do botão de denúncia
-    if submitted_denuncia and victim_name and conversation_text:
-        with st.spinner('Gerando documento de denúncia...'):
-            try:
-                resultado = executar_crew_denuncia(victim_name, conversation_text)
-                st.success("Documento gerado com sucesso!")
-                st.markdown("### Documento de Denúncia")
-                st.write(resultado)
-            except Exception as e:
-                st.error(f"Ocorreu um erro durante a geração do documento: {str(e)}")
+    # Seção 1: Gerar relatório baseado no chat
+    with st.container():
+        st.markdown("### 📊 Gerar Relatório do Histórico de Conversa")
+        st.info("""
+            Use esta opção para gerar um relatório baseado na sua conversa com o Assistente Virtual.
+            O relatório incluirá todo o histórico de interação e orientações recebidas.
+        """)
+        
+        # Botão para gerar relatório do chat
+        if st.button("📊 Gerar Relatório da Conversa", 
+                    type="primary",
+                    use_container_width=True):
+            if "messages" in st.session_state and len(st.session_state.messages) > 1:
+                with st.spinner('Gerando relatório baseado no histórico do chat...'):
+                    try:
+                        chat_history = "\n".join([
+                            f"{msg['role'].upper()}: {msg['content']}"
+                            for msg in st.session_state.messages
+                        ])
+                        resultado = executar_crew_relatorio(chat_history)
+                        pdf_data = gerar_pdf_conteudo(resultado)
+                        
+                        st.success("✅ Relatório gerado com sucesso!")
+                        col1, col2, col3 = st.columns([1, 2, 1])
+                        with col2:
+                            st.download_button(
+                                label="📥 Baixar Relatório da Conversa (PDF)",
+                                data=pdf_data,
+                                file_name="Relatorio_da_Conversa.pdf",
+                                mime="application/pdf",
+                                use_container_width=True
+                            )
+                    except Exception as e:
+                        st.error(f"❌ Erro na geração do relatório: {str(e)}")
+            else:
+                st.warning("⚠️ Não há histórico de conversa disponível. Por favor, utilize primeiro o Assistente Virtual na aba 'Assistente Lei Maria da Penha'.")
 
-    # Processamento do botão de relatório
-    if submitted_relatorio:
-        if "messages" in st.session_state and len(st.session_state.messages) > 1:
-            with st.spinner('Gerando relatório baseado no histórico do chat...'):
-                try:
-                    # Formata o histórico do chat de forma mais estruturada
-                    chat_history = "\n".join([
-                        f"{msg['role'].upper()}: {msg['content']}"
-                        for msg in st.session_state.messages
-                        if msg['content'].strip()  # Remove mensagens vazias
-                    ])
-                    
-                    resultado = executar_crew_relatorio(chat_history)
-                    st.success("Relatório gerado com sucesso!")
-                    st.markdown("### Relatório da Conversa")
-                    st.write(resultado)
-                except Exception as e:
-                    st.error(f"Ocorreu um erro durante a geração do relatório: {str(e)}")
-        else:
-            st.warning("Não há histórico de conversa disponível. Por favor, utilize primeiro o Assistente Virtual na aba 'Assistente Lei Maria da Penha'.")
+    # Separador visual
+    st.divider()
 
+    # Seção 2: Formulário para novo relato
+    with st.container():
+        st.markdown("### 📋 Criar Nova Denúncia")
+        st.info("""
+            Use esta opção para criar um novo documento de denúncia, 
+            relatando detalhadamente os fatos ocorridos.
+        """)
+        
+        with st.form("denuncia_form"):
+            victim_name = st.text_input(
+                "Nome da Vítima",
+                placeholder="Digite seu nome completo"
+            )
+            
+            conversation_text = st.text_area(
+                "Relato dos Acontecimentos",
+                placeholder="Descreva detalhadamente o que aconteceu. Inclua informações como data, local, " 
+                          "pessoas envolvidas e qualquer outro detalhe relevante...",
+                height=300
+            )
+            
+            submitted_denuncia = st.form_submit_button(
+                "📋 Gerar Documento de Denúncia",
+                use_container_width=True,
+                type="primary"
+            )
+
+        # Processamento do formulário de denúncia
+        if submitted_denuncia:
+            if victim_name and conversation_text:
+                with st.spinner('Gerando documento de denúncia...'):
+                    try:
+                        resultado = executar_crew_denuncia(victim_name, conversation_text)
+                        pdf_data = gerar_pdf_conteudo(resultado)
+                        
+                        st.success("✅ Documento de denúncia gerado com sucesso!")
+                        col1, col2, col3 = st.columns([1, 2, 1])
+                        with col2:
+                            st.download_button(
+                                label="📥 Baixar Documento de Denúncia (PDF)",
+                                data=pdf_data,
+                                file_name="Documento_de_Denuncia.pdf",
+                                mime="application/pdf",
+                                use_container_width=True
+                            )
+                    except Exception as e:
+                        st.error(f"❌ Erro na geração do documento: {str(e)}")
+            else:
+                st.warning("⚠️ Por favor, preencha todos os campos necessários.")
 # Aba 3: Assistente Lei Maria da Penha
 with tabs[0]:
     st.title("👮‍♀️ Assistente Virtual - Lei Maria da Penha")
