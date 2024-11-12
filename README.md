@@ -109,7 +109,7 @@ alt="Descrição da imagem">
 
 &emsp; Personas are semi-fictional representations of ideal users, based on real data about the habits, behaviors, needs, and challenges of a project's target audience. They are created from research, interviews, and demographic data that help define specific characteristics of different user profiles. In product development projects, especially in the creation of websites and platforms, personas are fundamental for guiding the team in understanding who the users are, what they seek, and how they use the product.
 
-&emsp; o better understand the challenges faced in our area of work, we created two main personas: one who recognizes that she is experiencing a situation of violence, and another who has difficulty realizing she is going through the same problem. With this approach, our solution seeks to address both scenarios and develop a product adapted to meet the needs of each of these profiles. These personas have been mapped and can be observed in the following figures, along with their respective information.
+&emsp; To better understand the challenges faced in our area of work, we created two main personas: one who recognizes that she is experiencing a situation of violence, and another who has difficulty realizing she is going through the same problem. With this approach, our solution seeks to address both scenarios and develop a product adapted to meet the needs of each of these profiles. These personas have been mapped and can be observed in the following figures, along with their respective information.
 
 <div align="center">
 <sub>Figure 2 - Persona Andreia Barbosa </sub>
@@ -119,9 +119,9 @@ alt="Descrição da imagem">
 <sup>Source: Material produced by the authors (2024).</sup>
 </div>  
 
-&emsp; Andreia é uma dona de casa de 29 anos que depende financeiramente do marido, Anderson, e dedicou sua vida ao cuidado do lar a pedido dele, deixando seus estudos e emprego para focar na vida familiar. Ela passa a maior parte do tempo em casa, isolada e com pouca rede de apoio, o que a faz questionar a saúde de sua relação e sua própria independência.
+&emsp; Andreia is a 29-year-old homemaker who is financially dependent on her husband, Anderson. At his request, she dedicated her life to taking care of the home, giving up her studies and job to focus on family life. She spends most of her time at home, isolated and with little support network, which makes her question the health of her relationship and her own independence.
 
-&emsp; Esse perfil destaca uma mulher que, apesar de ter assumido o papel de cuidar do lar, sente a necessidade de retomar algum grau de independência e segurança pessoal. Ela procura informações e apoio para entender se a situação que está enfrentando se trata de violência e como pode buscar ajuda para sair dessa situação e atingir seus objetivos.
+&emsp; This profile highlights a woman who, despite having taken on the role of caring for the home, feels the need to regain some degree of independence and personal security. She seeks information and support to understand if the situation she is facing constitutes violence and how she can find help to leave this situation and achieve her goals.
 
 <div align="center">
 <sub>Figure 3 - Persona Maria Almeida</sub>
