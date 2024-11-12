@@ -13,13 +13,6 @@ from dotenv import load_dotenv
 from crewai import Agent, Task, Crew
 from langchain_groq import ChatGroq
 from crewai_tools import tool
-from langchain_community.document_loaders import PyPDFLoader
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain_core.prompts import ChatPromptTemplate
-from langchain.chains import create_retrieval_chain
-from langchain_community.vectorstores import FAISS
 import streamlit as st
 
 # Carregar variáveis de ambiente
@@ -60,7 +53,7 @@ def buscar_delegacias_proximas(endereco_busca: str) -> str:
     Retorno:
     str: Lista de delegacias encontradas ou uma mensagem de erro caso ocorra uma falha na requisição.
     """
-    api_key = "9e65dad0b5342f127b90b31b40f4911f85d37019"
+    api_key = os.environ.get("SERPER_API_KEY")
     url = "https://google.serper.dev/search"
     headers = {
         "X-API-KEY": api_key,
